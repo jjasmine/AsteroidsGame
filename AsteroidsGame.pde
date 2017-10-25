@@ -1,7 +1,7 @@
-//your variable declarations here
+Spaceship bob;
 public void setup() 
 {
-  //your code here
+  Spaceship bob = new Spaceship();
 }
 public void draw() 
 {
