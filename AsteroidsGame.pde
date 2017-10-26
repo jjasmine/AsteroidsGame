@@ -1,10 +1,11 @@
 Spaceship bob;
 public void setup() 
 {
-  Spaceship bob = new Spaceship();
+	size(500,500);
+  bob = new Spaceship();
 }
 public void draw() 
 {
-  //your code here
+  bob.show();
 }
 
