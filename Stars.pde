@@ -8,7 +8,7 @@ class Stars //note that this class does NOT extend Floater
   {
   	myPosX = (int)(Math.random()*500);
   	myPosY = (int)(Math.random()*500);
-  	mySColor = color(25);
+  	mySColor = color(255);
   	mySize = (int)(Math.random()*4);
   }
   void show()
