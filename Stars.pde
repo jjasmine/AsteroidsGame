@@ -11,7 +11,7 @@ class Stars //note that this class does NOT extend Floater
   	mySColor = color(255);
   	mySize = (int)(Math.random()*4);
   }
-  void show()
+  public void show()
   {
   	fill(mySColor);
   	ellipse(myPosX, myPosY, mySize, mySize);
