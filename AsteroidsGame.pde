@@ -1,6 +1,9 @@
-Spaceship bob;
+Spaceship ship;
 Stars[] nightSky = new Stars[200];
-Asteroids[] gob = new Asteroids[20];
+//Asteroid[] rock = new Asteroid[20];
+
+ArrayList <Asteroids> rock = new ArrayList <Asteroids> ();
+
 public void setup() 
 {
 	size(500,500);
@@ -8,12 +11,14 @@ public void setup()
 	{
 		nightSky[i] = new Stars();
 	}
-  for (int i = 0; i < gob.length; i++)
+
+  for (int i = 0; i < 25; i++)
   {
-    gob[i] = new Asteroids();
+    rock.add(new Asteroids());
   }
-  	bob = new Spaceship();
+  	ship = new Spaceship();
 }
+
 public void draw() 
 {
 	background(0);
@@ -21,28 +26,38 @@ public void draw()
 	{
 		nightSky[i].show();
 	}
-  for(int i = 0; i < gob.length; i++)
+  for(int i = 0; i < rock.size(); i++)
   {
-    gob[i].show();
-    gob[i].move();
+    rock.get(i).show();
+    rock.get(i).move();
+    if (dist(ship.getX(), ship.getY(), rock.get(i).getX(), rock.get(i).getY()) < 20)
+    {
+      rock.remove(i);
+    }
   }
-	bob.show();
+
+if (rock.size() < 20)
+{
+  rock.add(new Asteroids());
+}
+
+	ship.show();
   if(keyPressed == true && key == 'w')
-  bob.move();
+  ship.move();
 }
 
 public void keyPressed()
   {
-  	if (key == 'w') {bob.accelerate(.1);}
-  	if (key == 'a') {bob.turn(-5);}
-  	if (key == 'd') {bob.turn(5);}
+  	if (key == 'w') {ship.accelerate(.1);}
+  	if (key == 'a') {ship.turn(-5);}
+  	if (key == 'd') {ship.turn(5);}
   	if (key == 's')
   	{
-  		bob.setX((int)(Math.random() * width));
-  		bob.setY((int)(Math.random()* height));
-  		bob.setPointDirection((int)(Math.random() * 360));
-  		bob.setDirectionX(0);
-  		bob.setDirectionY(0);
+  		ship.setX((int)(Math.random() * width));
+  		ship.setY((int)(Math.random()* height));
+  		ship.setPointDirection((int)(Math.random() * 360));
+  		ship.setDirectionX(0);
+  		ship.setDirectionY(0);
 
   	}
   }
