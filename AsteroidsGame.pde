@@ -1,5 +1,6 @@
-Spaceship ship;
+Spaceship ship = new Spaceship();
 Stars[] nightSky = new Stars[200];
+Bullet amu = new Bullet(ship);
 //Asteroid[] rock = new Asteroid[20];
 
 ArrayList <Asteroids> rock = new ArrayList <Asteroids> ();
@@ -16,7 +17,7 @@ public void setup()
   {
     rock.add(new Asteroids());
   }
-  	ship = new Spaceship();
+  	
 }
 
 public void draw() 
@@ -44,6 +45,14 @@ if (rock.size() < 20)
 	ship.show();
   if(keyPressed == true && key == 'w')
   ship.move();
+
+  amu.show();
+  amu.move();
+  
+
+
+
+
 }
 
 public void keyPressed()

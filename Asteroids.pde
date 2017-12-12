@@ -3,7 +3,7 @@ class Asteroids extends Floater
 	private int rotSpeed;
 	public Asteroids()
 {
-	rotSpeed = (int)(Math.random()*3)-1;
+	rotSpeed = (int)(Math.random()*2)-1;
 	corners = 6;
  	xCorners = new int [corners];
  	yCorners = new int [corners];
@@ -26,6 +26,9 @@ class Asteroids extends Floater
  	myDirectionX = (int)(Math.random()*2)-1;
  	myDirectionY = (int)(Math.random()*2)-1;
  	myPointDirection = 0;
+
+ 	if(myDirectionX == 0) {myDirectionX = 1;}
+ 	if(myDirectionY == 0) {myDirectionY = 1;}
 }  
   
   void setX(int x){myCenterX = x;}  
@@ -50,7 +53,7 @@ public void move()
 
 	//wrap
 	if (myCenterX > width){
-		myCenterX =0;
+		myCenterX = 0;
 	}
 	}
 
