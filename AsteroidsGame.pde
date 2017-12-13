@@ -47,7 +47,7 @@ public void draw()
     {
       if(dist(amu.get(j).getX(),amu.get(j).getY(), rock.get(i).getX(), rock.get(i).getY()) < 20)
       {
-        rock.remove(j);
+        rock.remove(i);
         amu.remove(j);
         break;
       }
@@ -76,7 +76,7 @@ if (rock.size() < 20)
 
 public void keyTyped()
   {
-  	if (key == 'w') {ship.accelerate(.05);}
+  	if (key == 'w') {ship.accelerate(.01);}
   	if (key == 'a') {ship.turn(-5);}
   	if (key == 'd') {ship.turn(5);}
   	if (key == 's')
