@@ -1,9 +1,10 @@
 Spaceship ship = new Spaceship();
 Stars[] nightSky = new Stars[200];
-Bullet amu = new Bullet(ship);
+//Bullet amu = new Bullet(ship);
 //Asteroid[] rock = new Asteroid[20];
 
 ArrayList <Asteroids> rock = new ArrayList <Asteroids> ();
+ArrayList <Bullet> amu = new ArrayList <Bullet> ();
 
 public void setup() 
 {
@@ -17,6 +18,11 @@ public void setup()
   {
     rock.add(new Asteroids());
   }
+
+  for (int i = 0; i < amu.size(); i++)
+  {
+    //amu.add
+  }
   	
 }
 
@@ -27,6 +33,7 @@ public void draw()
 	{
 		nightSky[i].show();
 	}
+
   for(int i = 0; i < rock.size(); i++)
   {
     rock.get(i).show();
@@ -35,6 +42,22 @@ public void draw()
     {
       rock.remove(i);
     }
+
+    for(int j = 0; j < amu.size(); j++)
+    {
+      if(dist(amu.get(j).getX(),amu.get(j).getY(), rock.get(i).getX(), rock.get(i).getY()) < 20)
+      {
+        rock.remove(j);
+        amu.remove(j);
+        break;
+      }
+    }
+  }
+
+  for(int i = 0; i < amu.size(); i++)
+  {
+    amu.get(i).show();
+    amu.get(i).move();
   }
 
 if (rock.size() < 20)
@@ -43,24 +66,21 @@ if (rock.size() < 20)
 }
 
 	ship.show();
-  if(keyPressed == true && key == 'w')
   ship.move();
 
-  amu.show();
-  amu.move();
   
-
 
 
 
 }
 
-public void keyPressed()
+public void keyTyped()
   {
-  	if (key == 'w') {ship.accelerate(.1);}
+  	if (key == 'w') {ship.accelerate(.05);}
   	if (key == 'a') {ship.turn(-5);}
   	if (key == 'd') {ship.turn(5);}
   	if (key == 's')
+
   	{
   		ship.setX((int)(Math.random() * width));
   		ship.setY((int)(Math.random()* height));
@@ -69,4 +89,5 @@ public void keyPressed()
   		ship.setDirectionY(0);
 
   	}
+    if (key == 'q'){amu.add(new Bullet(ship));}
   }
