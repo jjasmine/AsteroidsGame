@@ -76,7 +76,7 @@ if (rock.size() < 20)
 
 public void keyTyped()
   {
-  	if (key == 'w') {ship.accelerate(.01);}
+  	if (key == 'w') {ship.accelerate(.05);}
   	if (key == 'a') {ship.turn(-5);}
   	if (key == 'd') {ship.turn(5);}
   	if (key == 's')
